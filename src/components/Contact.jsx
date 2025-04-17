@@ -1,7 +1,27 @@
-import React from 'react';
+import React  , {useRef} from 'react';
 import question from '../assets/Question.png';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+    const form =useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm(
+          'service_hq0s7td',     // Replace with EmailJS Service ID
+          'template_10tnprb',    // Replace with EmailJS Template ID
+          form.current,
+          'F5gX2wqKKo_NNgInM'     // Replace with EmailJS Public Key
+        ).then(
+          (result) => {
+            alert('Message sent successfully!');
+            form.current.reset();
+          },
+          (error) => {
+            alert('Failed to send message.');
+          }
+        );
+      };
   return (
     <div className='w-full min-h-screen bg-black'>
       <div className='w-full h-full flex flex-col justify-center'>
@@ -16,7 +36,7 @@ function Contact() {
 
           {/* Form */}
           <div className="w-[90%] md:w-[40%] bg-purple-700 flex justify-center items-center p-4">
-            <form className="w-full text-white space-y-5">
+            <form ref={form} onSubmit={sendEmail} className="w-full text-white space-y-5">
               <div>
                 <label className="block mb-1 font-bold text-xl">Full Name*</label>
                 <input name="user_name" type="text" required placeholder="Your Name" className="w-full p-3 text-black rounded border focus:outline-none bg-white" />
