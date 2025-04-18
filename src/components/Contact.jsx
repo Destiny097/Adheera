@@ -34,7 +34,7 @@ function Contact() {
 
         <div className='w-full bg-purple-700 flex flex-col md:flex-row items-center justify-evenly py-10'>
 
-          {/* Form */}
+          
           <div className="w-[90%] md:w-[40%] bg-purple-700 flex justify-center items-center p-4">
             <form ref={form} onSubmit={sendEmail} className="w-full text-white space-y-5">
               <div>
