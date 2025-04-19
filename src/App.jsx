@@ -4,7 +4,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import Stories from './components/Stories';
-
+import Trash from './components/Trash.jsx'
 function App() {
   return (
     <div className='w-screen h-auto'>
@@ -14,6 +14,7 @@ function App() {
       <Stories/>
       <Contact/>
       <Footer/>
+      
     </div>
     
     
